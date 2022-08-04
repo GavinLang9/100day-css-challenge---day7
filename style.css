@@ -1,4 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300,400,500,600);
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
 
 .frame {
   position: absolute;
@@ -31,16 +36,369 @@
 
     display: flex;
     flex-direction: column;
+    z-index: 1;
 }
 
 nav {
     width: 100%;
-    height: 65px;
+    height: 60px;
     background-color: #5F98CD;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: .7rem;
+    font-weight: 300;
 }
 
+/* style for hamburger button */
+
+.transition {
+  transition: background-color .2s ease-in;
+
+}
+.ham {
+  /* border: 1px solid black; */
+  position: absolute;
+  top: 23px;
+  left: 20px;
+
+  height: 15px;
+  width: 29px;
+  
+  cursor: pointer;
+
+}
+
+.navbar {
+  position: absolute;
+  left: 50px;
+
+  width: 37.5%;
+  height: 68%;
+  background-color: #43627D;
+  z-index: -.5;
+ 
+
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-block: 10px;
+  padding-inline: 0;
+  list-style-position: inside;
+  list-style: none;
+}
+
+li {
+  position: relative;
+
+  height: 20%;
+  padding-block: 14.5px;
+  padding-inline: 35px;
+
+  color: #93B2CD;
+
+  font-size: .9rem;
+
+  transition: background-color .5s ease, color .5s ease;
+}
+
+li:hover {
+  background-color: #375063;
+  color: white;
+  cursor: pointer;
+}
+
+li:hover .square-marker {
+  border-color: white;
+}
+.square-marker {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  width: 7px;
+  height: 10px;
+
+  border: 1px solid #93B2CD; 
+
+  transform: translate(0, -50%);
+
+  transition: border-color .5s ease;
+}
+
+.navbar-open {
+  animation: navbar-open 1s ease;
+}
+
+.navbar-close {
+  animation: navbar-close 1s ease;
+}
+
+@keyframes navbar-open {
+  0% {
+    transform: translateX(30px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes navbar-close {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(30px);
+  }
+}
+.ham * {
+  pointer-events: none;
+}
+.ham:hover * {
+background-color: white;
+
+}
+#hamburger {
+  display: none;
+}
+
+#hamburger:checked .card{
+  transform: translate(50%, 0);
+}
+
+.line1 {
+  background-color: #B2DAFF;
+  width: 20px;
+  height: 3px;
+  border-radius: 10px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.line2 {
+  background-color: #B2DAFF;
+  width: 29px;
+  height: 3px;
+  border-radius: 10px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background-color: #B2DAFF;
+  border-radius: 50%;
+
+  position: absolute;
+  top: -2px;
+  right: 0;
+
+
+}
+.card-open-animation {
+  animation: card-open 1s ease both;
+}
+
+.card-close-animation {
+  animation: card-close 1s ease both;
+}
+@keyframes card-open {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes card-close {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transfrom: translateX(0);
+  }
+}
+/* end of style for hamburger */
+
+/* style for search bar */
+.search {
+  width: 12px;
+  height: 15px;
+  border: 1px solid #B2DAFF;
+
+  position: absolute;
+  right: 25px;
+
+  transition: border-color .25s ease-in;
+}
+
+.search:hover {
+  border-color: white;
+  cursor: pointer;
+}
+
+.searchbar {
+  position: absolute;
+  left: 15px;
+
+  width: 75%;
+  height: 55%;
+  padding-left: 20px;
+  border-radius: 30px;
+  border: none;
+  opacity: 0;
+  z-index: -1;
+}
+
+.searchbar:focus {
+  outline: none;
+}
+
+.searchbar-open {
+  animation: searchbar-open .5s ease both;
+}
+
+.searchbar-close {
+  animation: searchbar-close .5s ease both;
+}
+@keyframes searchbar-open {
+  0% {
+    transform: translateX(30px);
+    opacity: 0;
+    z-index: -1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+@keyframes searchbar-close {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 1;
+  }
+  100% {
+    transform: translateX(30px);
+    opacity: 0;
+    z-index: -1;
+  }
+}
+/* style for main content with notifications */
 main {
     width: 100%;
     height: calc(100% - 65px);
-    
+    color: #666666;
+
+    padding-left: 0px;
+    padding-right: 15px;
+    position: relative;
+}
+
+.timeline {
+  position: absolute;
+  width: 3px;
+  height: 102%;
+  background-color: #EBEBEB;
+  left: 27px;
+}
+
+.notification {
+  padding-left: 43px;
+  margin-block: 22px;
+  opacity: 0;
+}
+
+.notification:hover {
+  color: #5F98CD;
+  cursor: pointer;
+}
+
+.notification1 {
+  animation: notification 1s ease both;
+
+}
+.notification2 {
+
+  animation: notification 1s .25s ease both;
+
+}
+
+.notification3 {
+  animation: notification 1s .5s ease both;
+
+}
+.marker {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid #5F98CD;
+
+  background-color: white;
+  box-shadow: 0 0 0 3px white;
+
+  position: absolute;
+  left: 23px;
+
+ 
+}
+
+.marker1 {
+  animation: notification 1s ease both;
+}
+
+.marker2 {
+  /* top: 101px; */
+  animation: notification 1s .25s ease both;
+
+}
+
+.marker3 {
+  /* top: 178px; */
+  animation: notification 1s .5s ease both;
+
+}
+/* style for fonts */
+h2 {
+  font-size: .7rem;
+  font-weight: 400;
+}
+
+strong {
+  font-weight: 600;
+}
+
+p {
+  font-weight: 400;
+  font-size: .95rem;
+}
+
+/* animations for page load */
+
+@keyframes notification {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -9,10 +9,55 @@
 </head>
 <body>
     <div class="frame">
+        <div class="navbar">
+            <ul>
+                <li>Dashboard <div class="square-marker"></div></li>
+                <li>Profile <div class="square-marker"></div></li>
+                <li>Notifications <div class="square-marker"></div></li>
+                <li>Messages <div class="square-marker"></div></li>
+                <li>Settings <div class="square-marker"></div></li>
+            </ul>
+        </div>
             <div class="card">
-                <nav></nav>
-                <main></main>
+                
+                <nav>
+                    <div class="ham">
+                        <input type="checkbox" id="hamburger">
+                    <label for="hamburger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="dot"></div>
+                    </label>
+
+                    </div>
+
+                    <h1>Notifications</h1>
+                    <div class="search"></div>
+                    <input type="text" class="searchbar" placeholder="Search ...">
+                </nav>
+                
+
+                <main>
+                    <div class="timeline"></div>
+
+                   <div class="notification notification1">
+                        <div class="marker marker1"></div>
+                        <h2>9:24 AM</h2>
+                        <p><strong>John Walker</strong> posted a photo on your wall.</p>
+                   </div>
+                    <div class="notification notification2">
+                        <div class="marker marker2"></div>
+                        <h2>8:19 AM</h2>
+                        <p><strong>Alice Parker</strong> commented your last post.</p>
+                    </div>
+                    <div class="notification notification3">
+                        <div class="marker marker3"></div>
+                        <h2>Yesterday</h2>
+                        <p><strong>Luke Wayne</strong> added you as friend.</p>
+                    </div>   
+                </main>
             </div>
+            <script src="navbar.js"></script>
       </div>
 </body>
 </html>
